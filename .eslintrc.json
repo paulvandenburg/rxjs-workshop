@@ -35,6 +35,29 @@
             "style": "kebab-case"
           }
         ],
+        "@typescript-eslint/dot-notation": [
+          "off"
+        ],
+        "@typescript-eslint/member-delimiter-style": [
+          "off",
+          {
+            "multiline": {
+              "delimiter": "none",
+              "requireLast": true
+            },
+            "singleline": {
+              "delimiter": "semi",
+              "requireLast": false
+            }
+          }
+        ],
+        "@typescript-eslint/naming-convention": [
+          "warn",
+          {
+            "selector": "variable",
+            "format": ["camelCase"]
+          }
+        ],
         "@typescript-eslint/quotes": [
           "off",
           "single",
