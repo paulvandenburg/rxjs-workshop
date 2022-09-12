@@ -12,6 +12,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { metaReducers, reducers } from './ngrx/root.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { BaseLayoutComponent } from './workshop/base-layout/base-layout.component';
+import { rxjsFeatureKey, rxjsReducer } from './workshop/ngrx/rxjs.reducer';
+import { RxjsEffects } from './workshop/ngrx/rxjs.effects';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,11 @@ import { BaseLayoutComponent } from './workshop/base-layout/base-layout.componen
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     FontAwesomeModule,
     ToastrModule.forRoot(),
+    StoreModule.forFeature(rxjsFeatureKey, rxjsReducer),
+    EffectsModule.forFeature([
+      RxjsEffects,
+    ]),
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

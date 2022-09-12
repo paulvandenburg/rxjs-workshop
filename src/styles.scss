@@ -1,6 +1,14 @@
 @import "bootstrap/scss/bootstrap";
 @import "ngx-toastr/toastr";
 
+@import "prismjs/themes/prism.css";
+ @import "prismjs/themes/prism-okaidia.css";
+ //@import "prismjs/themes/prism-solarizedlight.css";
+
+pre code .token.operator {
+  background: none;
+}
+
 * {
   box-sizing: border-box;
   font-family: sans-serif;

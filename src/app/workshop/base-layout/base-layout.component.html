@@ -24,9 +24,7 @@
         <div class="col">
           <div class="card">
             <div class="card-body">
-              <pre>
-                {{ messages$ | async }}
-              </pre>
+              <pre>{{ messages$ | async | join }}</pre>
             </div>
           </div>
         </div>
