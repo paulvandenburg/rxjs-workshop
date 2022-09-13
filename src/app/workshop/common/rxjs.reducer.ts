@@ -1,6 +1,6 @@
 import { Action, createAction, createFeatureSelector, createReducer, createSelector, props } from '@ngrx/store';
 import { produceOn } from '../../ngrx/reducerUtils';
-import { dateToIso8601DateTime } from '../../util';
+import { dateToIso8601Time } from '../../util';
 
 export const rxjsFeatureKey = 'rxjs';
 
@@ -20,7 +20,7 @@ export function rxjsReducer(state: RxjsState, actionCreator: Action) {
     initialState,
     produceOn(addRxjsLog, (draft, action) => {
       draft.messages = [
-        `${dateToIso8601DateTime(new Date())} - ${action.log}`,
+        `${dateToIso8601Time(new Date())} - ${action.log}`,
         ...draft.messages,
       ];
     }),

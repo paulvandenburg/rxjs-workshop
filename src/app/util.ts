@@ -3,6 +3,10 @@ export const dateToIso8601DateTime = (date: Date): string => {
   return `${date.getFullYear()}-${leftPad(date.getUTCMonth() + 1)}-${leftPad(date.getDate())} ${leftPad(date.getHours())}:${leftPad(date.getMinutes())}:${leftPad(date.getSeconds())}:${leftPad(date.getMilliseconds(), 3)}`;
 }
 
+export const dateToIso8601Time = (date: Date): string => {
+  return `${leftPad(date.getHours())}:${leftPad(date.getMinutes())}:${leftPad(date.getSeconds())}:${leftPad(date.getMilliseconds(), 3)}`;
+}
+
 export const leftPad = (input: string | number, count: number = 2, char: string = '0'): string => {
   let output = `${input}`;
   if (output.length < count) {

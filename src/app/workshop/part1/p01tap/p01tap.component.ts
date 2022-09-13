@@ -1,26 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { addRxjsLog, RxjsState } from '../../ngrx/rxjs.reducer';
+import { addRxjsLog, RxjsState } from '../../common/rxjs.reducer';
 import { Store } from '@ngrx/store';
+import { Subject, tap } from 'rxjs';
+import { SourceService } from '../../../service/source.service';
+import { BaseComponent } from '../../common/base.component';
 
 @Component({
   selector: 'app-p01tap',
   templateUrl: './p01tap.component.html',
   styleUrls: ['./p01tap.component.scss'],
 })
-export class P01tapComponent implements OnInit {
+export class P01tapComponent extends BaseComponent implements OnInit {
 
-  html = '<html>\n' +
-    ' <body>\n' +
-    '   <a href="#">linkje</a>\n' +
-    ' </body>\n' +
-    '</html>';
+  readonly exampleCode: string = 'emitter = new Subject<string>();\n\n' +
+    'ngOnInit(): void {\n' +
+    '  this.emitter.pipe(\n' +
+    '    tap((log) => this.store.dispatch(addRxjsLog({ log })))\n' +
+    '  ).subscribe();\n' +
+    '}\n\n' +
+    'emitLog() {\n' +
+    '  this.emitter.next(\'Hello!\');\n' +
+    '}';
 
-  constructor(private store: Store<RxjsState>) { }
+  emitter = new Subject<string>();
 
-  ngOnInit(): void {
+  constructor(private store: Store<RxjsState>, private source: SourceService) {
+    super();
+    this.source.getPortalQuote().subscribe((quote) => this.store.dispatch(addRxjsLog({ log: quote })));
   }
 
-  addLog() {
-    this.store.dispatch(addRxjsLog({ log: 'hello' }));
+  ngOnInit(): void {
+    const sub =
+    this.emitter.pipe(
+      tap((log) => this.store.dispatch(addRxjsLog({ log })))
+    ).subscribe();
+
+    this.subscriptions.push(sub);
+  }
+
+  emitLog() {
+    this.emitter.next('Hello!');
   }
 }

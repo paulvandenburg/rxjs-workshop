@@ -1,16 +1,5 @@
-<p>p01tap works!</p>
+<app-code-display [code]="exampleCode"></app-code-display>
 
-<app-code-display>
-  <pre>const test: string = 'Hello world';
-const test: string = 'Hello world';
-const test: string = 'Hello world';
-const test: string = 'Hello world';</pre>
-</app-code-display>
-
-<app-code-display [language]="'html'">&lt;html&gt;&lt;body&gt;test&lt;/body&gt;&lt;/html&gt;</app-code-display>
-
-<app-code-display [language]="'html'" [code]="html"></app-code-display>
-
-<button (click)="addLog()" class="btn btn-primary">
-  Add log
+<button (click)="emitLog()" class="btn btn-primary">
+  Emit log
 </button>
