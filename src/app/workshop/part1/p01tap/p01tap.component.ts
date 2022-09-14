@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { addRxjsLog, RxjsState } from '../../common/rxjs.reducer';
 import { Store } from '@ngrx/store';
-import { Subject, tap } from 'rxjs';
+import { of, Subject, tap } from 'rxjs';
 import { SourceService } from '../../../service/source.service';
 import { BaseComponent } from '../../common/base.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-p01tap',
@@ -24,9 +25,9 @@ export class P01tapComponent extends BaseComponent implements OnInit {
 
   emitter = new Subject<string>();
 
-  constructor(private store: Store<RxjsState>, private source: SourceService) {
+  constructor(private store: Store<RxjsState>, private source: SourceService, private http: HttpClient) {
     super();
-    this.source.getPortalQuote().subscribe((quote) => this.store.dispatch(addRxjsLog({ log: quote })));
+    // this.source.getPortalQuote().subscribe((quote) => this.store.dispatch(addRxjsLog({ log: quote })));
   }
 
   ngOnInit(): void {
@@ -36,6 +37,10 @@ export class P01tapComponent extends BaseComponent implements OnInit {
     ).subscribe();
 
     this.subscriptions.push(sub);
+
+    const observable = this.http.get('https://portal.paulvandenburg.nl', { responseType: 'text' });
+    observable.subscribe((s) => console.log('A', s));
+    observable.subscribe((s) => console.log('B', s));
   }
 
   emitLog() {
