@@ -1,0 +1,17 @@
+<form [formGroup]="searchForm" class="py-4">
+  <div>
+    <label for="airport-name" class="form-label">Vliegveld naam</label>
+    <input id="airport-name" formControlName="name" class="form-control" />
+  </div>
+</form>
+
+<div class="card py-4">
+  <div class="card-body">
+    Airports:
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let airport of (airports | async)">
+        {{airport.name}} - {{airport.iso_country}}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -22,11 +22,6 @@ export class P02MapComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    this.sourceService.queryAirports('b').subscribe((airports) => {
-      console.log('airports', airports);
-    });
-
     const sub =
     this.emitter.pipe(
 

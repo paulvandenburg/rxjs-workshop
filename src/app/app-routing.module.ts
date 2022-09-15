@@ -15,6 +15,10 @@ const routes: Routes = [
             loadChildren: () => import('./workshop/part1/part1.module').then((m) => m.Part1Module),
           },
           {
+            path: 'part-2',
+            loadChildren: () => import('./workshop/part2/part2.module').then((m) => m.Part2Module),
+          },
+          {
             path: '',
             pathMatch: 'full',
             redirectTo: 'part-1',
