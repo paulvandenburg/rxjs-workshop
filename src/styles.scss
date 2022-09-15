@@ -2,8 +2,8 @@
 @import "ngx-toastr/toastr";
 
 @import "prismjs/themes/prism.css";
- @import "prismjs/themes/prism-okaidia.css";
- //@import "prismjs/themes/prism-solarizedlight.css";
+@import "prismjs/themes/prism-okaidia.css";
+//@import "prismjs/themes/prism-solarizedlight.css";
 
 pre code .token.operator {
   background: none;
@@ -17,4 +17,9 @@ pre code .token.operator {
 body {
   width: 100vw;
   height: 100vh;
+}
+
+pre code span {
+  // Equal to prism config, needed to override the '*' family.
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }

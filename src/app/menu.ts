@@ -26,6 +26,10 @@ export const menu: MenuGroup[] = [
         displayName: 'Nested map',
         path: '03-nested-map',
       },
+      {
+        displayName: 'Error handling',
+        path: '04-errors',
+      },
     ],
   },
   {
@@ -35,6 +39,14 @@ export const menu: MenuGroup[] = [
       {
         displayName: 'Debounce',
         path: '01-debounce',
+      },
+      {
+        displayName: 'Combining observables',
+        path: '02-combining-observables',
+      },
+      {
+        displayName: 'Sharing observables',
+        path: '03-replays',
       },
     ],
   },

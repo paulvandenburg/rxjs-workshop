@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" (click)="click200()">HTTP 200</button>
+  </div>
+  <div class="col">
+    <button class="btn btn-primary" (click)="click400()">HTTP 400</button>
+  </div>
+  <div class="col">
+    <button class="btn btn-primary" (click)="click500()">HTTP 500</button>
+  </div>
+  <div class="col">
+    <button class="btn btn-primary" (click)="clickHandledError()">Handled error</button>
+  </div>
+</div>
+<div class="row py-4">
+  <div class="row">
+    Status: {{status}}
+  </div>
+  <img [src]="fox" alt="fox" *ngIf="fox" />
+</div>
