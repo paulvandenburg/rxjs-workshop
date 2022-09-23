@@ -28,13 +28,12 @@ export class P01DebounceComponent extends BaseComponent implements OnInit {
 
   ngOnInit(): void {
     this.airportPage$ =
-      this.searchForm.get('name')?.valueChanges
-      .pipe(
+    this.searchForm.get('name')?.valueChanges.pipe(
       tap((searchValue) => this.store.dispatch(addRxjsLog({ log: searchValue }))),
 
       // TODO reduce amount of calls
 
-      switchMap((query) => this.sourceService.queryAirports(query)),
+      switchMap((query) => this.sourceService.queryAirports(query))
     );
   }
 

@@ -32,14 +32,14 @@ export class P03NestedMapComponent extends BaseComponent implements OnInit {
   }
 
   next(): void {
-    this.store.dispatch(addRxjsLog({ log: `emitting: ${this.counter}`}));
+    this.store.dispatch(addRxjsLog({ log: `emitting: ${this.counter}` }));
     this.emitter.next(this.counter);
     this.counter++;
   }
 
   moo(): void {
     this.sourceService.getPortalQuote().pipe(
-      switchMap((quote) => this.sourceService.cowsay(quote)),
+      switchMap((quote) => this.sourceService.cowsay(quote))
     ).subscribe((quote) => this.store.dispatch(addRxjsLog({ log: quote })));
   }
 
