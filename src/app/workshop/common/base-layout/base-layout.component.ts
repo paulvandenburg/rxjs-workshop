@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RxjsState, selectRxjsMessages } from '../common/rxjs.reducer';
+import { RxjsState, selectRxjsMessages } from '../rxjs.reducer';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { menu } from 'src/app/menu';

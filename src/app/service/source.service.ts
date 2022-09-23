@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { exhaustMap, from, map, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { concatMap, debounce, exhaustMap, from, map, Observable, of, timer } from 'rxjs';
 import { Airport } from './airport';
 import { Page } from './page';
 
@@ -46,6 +46,12 @@ export class SourceService {
       exhaustMap((blob) => {
         return this.blobToString(blob);
       })
+    );
+  }
+
+  slow<T>(value: T, delayInMillis: number = 1000): Observable<T> {
+    return timer(delayInMillis).pipe(
+      concatMap(() => of(value))
     );
   }
 

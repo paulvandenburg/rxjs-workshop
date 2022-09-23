@@ -46,7 +46,7 @@ export const menu: MenuGroup[] = [
       },
       {
         displayName: 'Sharing observables',
-        path: '03-replays',
+        path: '03-sharing-observables',
       },
     ],
   },

@@ -11,7 +11,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ToastrModule } from 'ngx-toastr';
 import { metaReducers, reducers } from './ngrx/root.reducer';
 import { HttpClientModule } from '@angular/common/http';
-import { BaseLayoutComponent } from './workshop/base-layout/base-layout.component';
+import { BaseLayoutComponent } from './workshop/common/base-layout/base-layout.component';
 import { rxjsFeatureKey, rxjsReducer } from './workshop/common/rxjs.reducer';
 import { RxjsEffects } from './workshop/common/rxjs.effects';
 import { SharedModule } from './shared/shared.module';

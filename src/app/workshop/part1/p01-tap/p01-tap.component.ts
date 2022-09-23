@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { addRxjsLog, RxjsState } from '../../common/rxjs.reducer';
 import { Store } from '@ngrx/store';
-import { map, of, Subject, switchMap, tap } from 'rxjs';
+import { Subject, tap } from 'rxjs';
 import { SourceService } from '../../../service/source.service';
 import { BaseComponent } from '../../common/base.component';
 import { HttpClient } from '@angular/common/http';
@@ -9,7 +9,6 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-p01-tap',
   templateUrl: './p01-tap.component.html',
-  styleUrls: ['./p01-tap.component.scss'],
 })
 export class P01TapComponent extends BaseComponent implements OnInit {
 

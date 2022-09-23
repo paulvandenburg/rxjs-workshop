@@ -9,7 +9,6 @@ import { map, Subject, switchMap } from 'rxjs';
 @Component({
   selector: 'app-p02-map',
   templateUrl: './p02-map.component.html',
-  styleUrls: ['./p02-map.component.scss'],
 })
 export class P02MapComponent extends BaseComponent implements OnInit {
 
@@ -24,6 +23,7 @@ export class P02MapComponent extends BaseComponent implements OnInit {
   ngOnInit(): void {
     const sub =
     this.emitter.pipe(
+      // TODO use the map
 
     ).subscribe((val) => this.store.dispatch(addRxjsLog({ log: val + '' })));
 
@@ -36,8 +36,7 @@ export class P02MapComponent extends BaseComponent implements OnInit {
 
   newQuote(): void {
     this.sourceService.getPortalQuote().pipe(
-      switchMap((quote) => this.sourceService.cowsay(quote)),
-      map((cow) => `This is cow:\n${cow}`)
+      map((quote) => `Best quote ever: ${quote}`)
     ).subscribe((quote) => this.store.dispatch(addRxjsLog({ log: quote })));
   }
 

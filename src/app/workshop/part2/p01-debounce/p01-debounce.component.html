@@ -1,3 +1,13 @@
+<p>
+  Dit is het begin van een formulier om vliegvelden op te zoeken.
+  <br>
+  Het idee is om een soort auto complete te maken door zoekresultaten te tonen zonder dat je op een knop hoeft te drukken.
+  Hiervoor wordt al geluisterd naar changes van het formulier, maar zoals je ziet triggert dat een hoop events.
+  <br>
+  <br>
+  Om de API te ontlasten willen we pas zoekopdrachten gaan ophalen als de gebruiker klaar is met typen.
+</p>
+
 <form [formGroup]="searchForm" class="py-4">
   <div>
     <label for="airport-name" class="form-label">Vliegveld naam</label>
@@ -8,10 +18,10 @@
 <div class="card py-4">
   <div class="card-body">
     Airports:
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let airport of (airports | async)">
-        {{airport.name}} - {{airport.iso_country}}
-      </li>
-    </ul>
+    <app-airport-list [airportPage]="airportPage$ | async"></app-airport-list>
   </div>
 </div>
+
+<p class="py-5">
+  Om het helemaal af te maken kan je proberen pagination te implementeren, maar daarvoor niet op de debounce te wachten.
+</p>

@@ -9,9 +9,15 @@ import { catchError } from 'rxjs';
 @Component({
   selector: 'app-p04-errors',
   templateUrl: './p04-errors.component.html',
-  styleUrls: ['./p04-errors.component.scss'],
 })
 export class P04ErrorsComponent extends BaseComponent {
+
+  readonly code = 'this.sourceService.httpFox(500).pipe(\n' +
+    '  catchError((error: HttpErrorResponse) => {\n' +
+    '    console.log(\'Handling error\', error);\n' +
+    '    return this.sourceService.blobToString(error.error);\n' +
+    '  })\n' +
+    ')';
 
   fox: string = '';
   status: string = '?';

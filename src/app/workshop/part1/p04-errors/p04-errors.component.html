@@ -1,12 +1,15 @@
+<p>
+  Met API calls komen ook (on)verwachte problemen.
+  <br>
+  De catchError operator maakt het makkelijk hier mee om te gaan.
+</p>
+<app-code-display [code]="code"></app-code-display>
 <div class="row">
   <div class="col">
     <button class="btn btn-primary" (click)="click200()">HTTP 200</button>
   </div>
   <div class="col">
     <button class="btn btn-primary" (click)="click400()">HTTP 400</button>
-  </div>
-  <div class="col">
-    <button class="btn btn-primary" (click)="click500()">HTTP 500</button>
   </div>
   <div class="col">
     <button class="btn btn-primary" (click)="clickHandledError()">Handled error</button>
@@ -18,3 +21,7 @@
   </div>
   <img [src]="fox" alt="fox" *ngIf="fox" />
 </div>
+
+<p class="py-5">
+  Als vervolg stap kan je een actie maken waar je zelf de error in de observable gooit.
+</p>

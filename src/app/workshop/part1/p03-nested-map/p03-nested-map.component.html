@@ -1,1 +1,25 @@
-<p>p03nested-map works!</p>
+<p>
+  Nested maps zijn handig voor het koppelen van events aan een opvolgen async event, zoals een API call.
+  <br>
+  Hier is een demo voor het mappen van een Portal quote, naar de response van de geniale Cowsay service. Wat je kan zien met de Moo knop.
+  <br>
+  <br>
+  Maar het onderscheid tussen de 4 nested map operators (switchMap/exhaustMap/mergeMap/concatMap) worden duidelijker als je async event wat langer duurt.
+  <br>
+  Met de Slow Next knop, waar nu een switchMap achter zit, kan je zien wat voor impact dit heeft.
+  <br>
+  <br>
+  Probeer ook scenario's te implementeren die demonstreren wat de andere 3 operators onderscheid.
+</p>
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" (click)="next()">
+      Slow Next
+    </button>
+  </div>
+  <div class="col">
+    <button class="btn btn-primary" (click)="moo()">
+      Moo
+    </button>
+  </div>
+</div>

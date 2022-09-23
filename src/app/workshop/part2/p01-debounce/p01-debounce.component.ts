@@ -4,14 +4,13 @@ import { addRxjsLog, RxjsState } from '../../common/rxjs.reducer';
 import { SourceService } from '../../../service/source.service';
 import { BaseComponent } from '../../common/base.component';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { EMPTY, map, Observable, tap } from 'rxjs';
+import { EMPTY, map, Observable, switchMap, tap } from 'rxjs';
 import { Airport } from '../../../service/airport';
 import { Page } from '../../../service/page';
 
 @Component({
   selector: 'app-p01-debounce',
   templateUrl: './p01-debounce.component.html',
-  styleUrls: ['./p01-debounce.component.scss'],
 })
 export class P01DebounceComponent extends BaseComponent implements OnInit {
 
@@ -28,19 +27,15 @@ export class P01DebounceComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.airportPage$ = this.sourceService.queryAirports('b');
-    // .subscribe((airports) => {
-    // console.log('airports', airports);
-    // });
+    this.airportPage$ =
+      this.searchForm.get('name')?.valueChanges
+      .pipe(
+      tap((searchValue) => this.store.dispatch(addRxjsLog({ log: searchValue }))),
 
-    const sub = this.searchForm.get('name')?.valueChanges.pipe(
-      tap((searchValue) => this.store.dispatch(addRxjsLog({ log: searchValue })))
-      // TODO reduce amount of calls (hint?)
-      // TODO map to airport query
-    ).subscribe();
-    if (sub) {
-      this.subscriptions.push(sub);
-    }
+      // TODO reduce amount of calls
+
+      switchMap((query) => this.sourceService.queryAirports(query)),
+    );
   }
 
   get airports(): Observable<Airport[]> {
