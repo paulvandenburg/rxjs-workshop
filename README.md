@@ -2,7 +2,7 @@
 
 Demo project for ihomer Academy RxJS workshop.
 
-This project expects you have node 16 / npm 8 installed.
+This project expects you have node 20 / npm 10 installed.
 
 Run project with `npm start`
 
