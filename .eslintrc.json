@@ -51,15 +51,6 @@
             }
           }
         ],
-        "@typescript-eslint/naming-convention": [
-          "warn",
-          {
-            "selector": "variable",
-            "format": [
-              "camelCase"
-            ]
-          }
-        ],
         "@typescript-eslint/quotes": [
           "off",
           "single",
