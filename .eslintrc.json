@@ -55,7 +55,9 @@
           "warn",
           {
             "selector": "variable",
-            "format": ["camelCase"]
+            "format": [
+              "camelCase"
+            ]
           }
         ],
         "@typescript-eslint/quotes": [
@@ -76,9 +78,18 @@
           }
         ],
         "eol-last": "error",
-        "indent": ["error", 2],
-        "jsx-quotes": ["error", "prefer-double"],
-        "linebreak-style": ["error", "unix"],
+        "indent": [
+          "error",
+          2
+        ],
+        "jsx-quotes": [
+          "error",
+          "prefer-double"
+        ],
+        "linebreak-style": [
+          "error",
+          "unix"
+        ],
         "max-len": "off",
         "new-parens": "error",
         "newline-per-chained-call": "off",
