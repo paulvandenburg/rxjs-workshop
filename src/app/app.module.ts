@@ -34,7 +34,7 @@ import { SharedModule } from './shared/shared.module';
     }),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production , connectInZone: true}),
     FontAwesomeModule,
     ToastrModule.forRoot(),
     StoreModule.forFeature(rxjsFeatureKey, rxjsReducer),
